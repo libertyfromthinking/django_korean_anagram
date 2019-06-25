@@ -1,0 +1,62 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <title>Get Korean Anagram Words</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
+  </head>
+   <body>
+   <h2 class="title">Get Korean Anagram Words</h2>
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+        <form action="." method="POST"> {% csrf_token %}
+          {{form.as_table}}
+         <button class="search_icon"><i class="fas fa-search"></i></button>
+          </form>
+          <div class="results">
+{% if object_list %}
+{{object_num}}건의 결과가 있습니다.<br><br>
+{% for name in object_list %}
+
+{{name}}<br>
+{% endfor %}
+
+{% elif search_term%}
+{{search_term}}는 입력 양식에 맞지 않습니다.
+{% endif %}
+</div>
+
+        </div>
+        
+      </div>
+
+    </div>
+
+  </body>
+</html> 
+
+
+{% comment %} <form action="." method="POST"> {% csrf_token %}
+  {{form.as_table}}
+  <button  value="submit">asd</button>
+</form>
+
+{{object_num}}건의 결과가 있습니다.<br><br>
+
+{% if object_list %}
+{% for name in object_list %}
+
+{{name}}<br>
+{% endfor %}
+
+{% elif search_term%}
+{{search_term}}는 입력 양식에 맞지 않습니다.
+{% endif %} {% endcomment %}
+
