@@ -43,20 +43,3 @@
 </html> 
 
 
-{% comment %} <form action="." method="POST"> {% csrf_token %}
-  {{form.as_table}}
-  <button  value="submit">asd</button>
-</form>
-
-{{object_num}}건의 결과가 있습니다.<br><br>
-
-{% if object_list %}
-{% for name in object_list %}
-
-{{name}}<br>
-{% endfor %}
-
-{% elif search_term%}
-{{search_term}}는 입력 양식에 맞지 않습니다.
-{% endif %} {% endcomment %}
-
