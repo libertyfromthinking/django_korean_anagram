@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qmc=co)#2+%q297+2y@iam+)brrmh)(hl)=*!^ls5z+u8(oau%'
+SECRET_KEY = os.environ["ANAGRAM_SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.pythonanywhere.com']
 
 
 # Application definition
@@ -74,12 +74,25 @@ WSGI_APPLICATION = 'hangul_anagram.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+                    'read_default_file':'/home/freethinking/django_korean_anagram/hangul_anagram/mysql.cnf',
+                    'init_command': "SET sql_mode='STRICT_TRANS_TABLES",
+                    # 'sql_mode': 'traditional',
+                }
+    }
 }
+
+
 
 
 # Password validation
