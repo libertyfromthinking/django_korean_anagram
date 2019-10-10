@@ -25,7 +25,7 @@ SECRET_KEY = os.environ["ANAGRAM_SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['freethinking.pythonanywhere.com']
 
 
 # Application definition
@@ -85,7 +85,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-                    'read_default_file':'/home/freethinking/django_korean_anagram/hangul_anagram/mysql.cnf',
+                    'read_default_file':'/home/su/anagram_app/hangul_anagram/mysql.cnf',
                     'init_command': "SET sql_mode='STRICT_TRANS_TABLES",
                     # 'sql_mode': 'traditional',
                 }
