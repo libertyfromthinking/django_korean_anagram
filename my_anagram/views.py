@@ -6,14 +6,9 @@ from django.views.generic.edit import FormView
 from .forms import AnagramForm
 
 import itertools
-# Create your views here.
 
-# class AnagramTV(TemplateView):
-#     Model = Anagram
-#     template_name = 'my_anagram/main.html'
+# 
 
-# class AnagramDV(DetailView):
-#     Model = Anagram
 
 # 초성 리스트. 00 ~ 18
 CHOSUNG_LIST = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ']
@@ -138,6 +133,7 @@ class SearchFormView(FormView):
     template_name = 'my_anagram/main.html'
     
     def form_valid(self, form):
+        
         name = '%s' % self.request.POST['search_word']
         s1 = korean_to_be_englished(name) 
         slist = case_of_word(s1)
