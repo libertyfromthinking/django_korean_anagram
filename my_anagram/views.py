@@ -7,7 +7,14 @@ from .forms import AnagramForm
 
 import itertools
 
-# 
+''' 한글을 초중종 단위로 분리해 아나그램을 만듭니다
+
+1. korean_to_be_englished 메소드는 한글을 받으면 초중종성으로 분리해 리스트로 리턴합니다
+2. case_of_word 메소드는 분리된 글자들로 모든 경우의 수를 구한 후 자음, 모음을 차례대로 맞춰 순서에 맞지 않는 단어를 리스트에서 제외합니다.
+3. combine_letter 메소드로 분리된 자모음을 다시 합쳐줍니다
+4. remove_duplicates 메소드로 중복을 제거합니다
+5. 결과값과 결과값의 길이를 template로 리턴합니다.
+'''
 
 
 # 초성 리스트. 00 ~ 18
@@ -141,7 +148,7 @@ class SearchFormView(FormView):
         object_num = len(object_list)
 
         context = {}
-        context['object_list'] = remove_duplicates(list(map(combine_letter, slist)))       
+        context['object_list'] = object_list       
         context['object_num'] = object_num
         context['form'] = form
         context['search_term'] = name
